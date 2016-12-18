@@ -1,0 +1,34 @@
+﻿@using Microsoft.Ajax.Utilities
+@model Vidly.ViewModels.CustomerViewModel
+
+
+@{
+    ViewBag.Title = "Customer Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>@ViewBag.Title</h2>
+
+@if (@Model.Customers.Count == 0)
+{
+    <text>There are no Customers</text>
+}
+else
+{ 
+    <table class="table table-striped table-hover table-bordered">
+        <thead>
+            <tr>
+                <th>Movies</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var customer in @Model.Customers)
+            {
+                <tr>
+                    <td>@Html.ActionLink(@customer.Name, "Details", new {id = @customer.Id} )</td>
+                </tr>
+            }
+        </tbody>
+
+    </table>
+}
