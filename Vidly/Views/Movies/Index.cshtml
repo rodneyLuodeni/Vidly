@@ -1,36 +1,26 @@
-﻿@model Vidly.ViewModels.MovieViewModel
+﻿@model IEnumerable<Vidly.Models.Movie>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Movies";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Movies Index</h2>
-
-@if (@Model.Movie.Count == 0)
-{
-    <text>There were no movies in the database.</text>
-}
-else
-{
-    <table class="table table-striped table-hover table-bordered">
-        <thead>
+<h2>Movies</h2>
+<table class="table table-bordered table-hover">
+    <thead>
         <tr>
-            <th>Movies</th>
+            <th>Movie</th>
         </tr>
-        </thead>
-        <tbody>
-            @foreach (var movie in @Model.Movie)
-            {
-                <tr>
-                    <td>@movie.Name</td>
-                </tr>
-            }
-        </tbody>
-       
-    </table>
-}
-
+    </thead>
+    <tbody>
+        @foreach (var movie in Model)
+        {
+            <tr>
+                <td>@movie.Name</td>
+            </tr>
+        }
+    </tbody>
+</table>
 
 
 
