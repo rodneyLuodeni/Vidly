@@ -6,3 +6,14 @@
 }
 
 <h2>@Model.Name</h2>
+
+
+
+<div class="col-md-12">
+    <p>Name:  @Model.Name</p>
+    @if (@Model.DateOfBirth != null)
+    {
+        <p>Date of birth: @Model.DateOfBirth</p>
+    }
+
+</div>
